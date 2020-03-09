@@ -9,6 +9,13 @@ PROJECTNAME := $(shell basename "$(PWD)")
 GOPATH := $(HOME)/go
 GOBIN := $(GOPATH)/bin
 
+# ARCH=$(shell uname -m)
+# VERSION=0.0.1
+# ITERATION := 1
+
+# BIN_DIR := $(CURDIR)/bin
+
+
 # Go parameters
 GOCMD=go
 GOMOD=$(GOCMD) mod
@@ -42,6 +49,9 @@ clean:
 
 deps:
 	$(GOMOD) download
+mod:
+	@go mod download
+	@go mod tidy
 
 ## build: blah
 build:
